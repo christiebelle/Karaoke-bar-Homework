@@ -13,8 +13,8 @@ class RoomTest < MiniTest::Test
     @room1 = Room.new("The Goonies", 10, 5)
     @room2 = Room.new("The Breakfast Club", 10, 5)
     @room3 = Room.new("Raiders of the Lost Ark", 10, 5)
-    @Guest1 = Guests.new("Christie", "Total Eclipse of the Heart", "25")
-    @Guest2 = Guests.new("Rachael", "Sweet Child Of Mine", "30")
+    @Guest1 = Guests.new("Christie", "Total Eclipse of the Heart", 25)
+    @Guest2 = Guests.new("Rachael", "Sweet Child Of Mine", 30)
     @song1 = Songs.new("Bohemian Rhapsody", "Queen")
     @song2 = Songs.new("Never Forget", "Take That")
     @song3 = Songs.new("I Will Survive", "Gloria Gaynor")
@@ -25,26 +25,26 @@ class RoomTest < MiniTest::Test
     assert_equal("The Goonies", @room1.room_name)
   end
 
-  def test_room_capacity
-    assert_equal(10, @room2.room_capacity)
+  def test_room_max_capacity
+    assert_equal(10, @room2.room_max_capacity)
   end
 
   def test_room_cost
     assert_equal("Raiders of the Lost Ark room has a £5 entry fee", @room3.room_cost)
   end
 
-  def test_guests_inroom
-    assert_equal(0, @inroom.guests_inroom(@room2))
+  def test_guests_in_room
+    assert_equal(0, @in_room.guests_in_room(@room2))
   end
-  
+
   def test_check_in_guest
     @room1.check_in_guest(@Guest1)
-    assert_equal(1, @room1.guests_inroom)
+    assert_equal(1, @in_room.guests_in_room(@room1))
   end
 
   def test_check_out_guest
       @room3.check_out_guest(@Guest2)
-      assert_equal(0, @inroom.guests_inroom(@room3))
+      assert_equal(0, @in_room.guests_in_room(@room3))
   end
 
   def test_songs_on_playlist

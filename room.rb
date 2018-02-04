@@ -7,7 +7,7 @@ class Room
     @room_name = name
     @capacity = capacity
     @cost = cost
-    @inroom = []
+    @in_room = []
     @playlist = []
   end
 
@@ -15,28 +15,28 @@ class Room
     return @room_name
   end
 
-  def room_capacity
+  def room_max_capacity
     return @capacity
   end
 
   def room_cost
     return "#{room_name} room has a £#{cost} entry fee"
   end
-  #
-  def guests_inroom(room)
-    return @inroom.count
+
+  def guests_in_room(room)
+    return @in_room.length
   end
-  #
+
   def check_in_guest(guest)
-    @inroom << guest
+    @in_room << guest
   end
 
   def check_out_guest(guest)
-    @inroom.delete(guest)
+    @in_room.delete(guest)
   end
 
   def songs_on_playlist
-    return @playlist.count
+    return @playlist.length
   end
 
   def add_song_to_playlist(song)
