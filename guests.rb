@@ -9,17 +9,18 @@ class Guests
     @money = money
   end
 
-  def song_title
-    return @title
+  def guest_name
+    return @name
   end
 
-  def song_artist
-    return @artist
+  def guest_fave_song
+    return "Woo! #{favesong} is my favourite song!"
   end
 
-  def play_song
-    return "Now playing #{title}"
+  def guest_money
+    return @money
   end
+
 
 
 end
