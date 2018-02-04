@@ -36,7 +36,7 @@ class RoomTest < MiniTest::Test
   def test_guests_in_room
     assert_equal(0, @in_room.guests_in_room(@room2))
   end
-
+  
   def test_check_in_guest
     @room1.check_in_guest(@Guest1)
     assert_equal(1, @in_room.guests_in_room(@room1))
