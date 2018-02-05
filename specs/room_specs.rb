@@ -34,26 +34,28 @@ class RoomTest < MiniTest::Test
   end
 
   def test_guests_in_room
-    assert_equal(0, @in_room.guests_in_room(@room2))
+    assert_equal(0, @room1.guests_in_room())
   end
-  
+
   def test_check_in_guest
     @room1.check_in_guest(@Guest1)
-    assert_equal(1, @in_room.guests_in_room(@room1))
+    assert_equal(1, @room1.guests_in_room())
   end
 
   def test_check_out_guest
-      @room3.check_out_guest(@Guest2)
-      assert_equal(0, @in_room.guests_in_room(@room3))
+    @room1.check_in_guest(@Guest1)
+    @room1.check_in_guest(@Guest2)
+    @room1.check_out_guest(@Guest2)
+    assert_equal(1, @room1.guests_in_room())
   end
 
   def test_songs_on_playlist
-    assert_equal(0, @playlist.songs_on_playlist)
+    assert_equal(0, @room2.songs_on_playlist)
   end
 
   def test_add_song_to_playlist
     @room2.add_song_to_playlist(@song2)
-    assert_equal(1, @playlist.songs_on_playlist)
+    assert_equal(1, @room2.songs_on_playlist)
   end
 
 

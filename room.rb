@@ -23,7 +23,7 @@ class Room
     return "#{room_name} room has a £#{cost} entry fee"
   end
 
-  def guests_in_room(room)
+  def guests_in_room()
     return @in_room.length
   end
 

@@ -20,7 +20,4 @@ class Guests
   def guest_money
     return @money
   end
-
-
-
 end
